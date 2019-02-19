@@ -4,7 +4,7 @@ set -e
 
 generate_docker() {
   docker run --rm kaczmarj/neurodocker:master generate docker \
-    --base=debian:stretch-non-free --pkg-manager=apt \
+    --base=debian:stretch --pkg-manager=apt \
     --install vim \
     --user=neuro \
     --afni version=latest method=binaries \
@@ -17,7 +17,7 @@ generate_docker() {
 
 generate_singularity() {
   docker run --rm kaczmarj/neurodocker:master generate singularity \
-    --base=debian:stretch-non-free --pkg-manager=apt \
+    --base=debian:stretch --pkg-manager=apt \
     --install vim \
     --user=neuro \
     --afni version=latest method=binaries \
