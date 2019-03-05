@@ -5,14 +5,11 @@ set -e
 generate_docker() {
   docker run --rm kaczmarj/neurodocker:master generate docker \
     --base=debian:stretch --pkg-manager=apt \
-    --install vim \
+    --install vim python \
     --user=root \
+    --run "ln -s /usr/bin/python /usr/bin/python2" \
     --afni version=latest method=binaries \
     --user=neuro \
-    --miniconda \
-          conda_install='python=2.7' \
-          create_env="neuro_py27" \
-          activate=false \
     --miniconda \
           conda_install='python=3.6 matplotlib numpy pandas scikit-learn nilearn scipy seaborn traits' \
           pip_install='nibabel nipype' \
@@ -23,14 +20,11 @@ generate_docker() {
 generate_singularity() {
   docker run --rm kaczmarj/neurodocker:master generate singularity \
     --base=debian:stretch --pkg-manager=apt \
-    --install vim \
+    --install vim python \
     --user=root \
+    --run "ln -s /usr/bin/python /usr/bin/python2" \
     --afni version=latest method=binaries \
     --user=neuro \
-    --miniconda \
-          conda_install='python=2.7' \
-          create_env="neuro_py27" \
-          activate=false \
     --miniconda \
           conda_install='python=3.6 matplotlib numpy pandas scikit-learn nilearn scipy seaborn traits' \
           pip_install='nibabel nipype' \
