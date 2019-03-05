@@ -5,7 +5,7 @@ set -e
 generate_docker() {
   docker run --rm kaczmarj/neurodocker:master generate docker \
     --base=debian:stretch --pkg-manager=apt \
-    --install vim \
+    --install vim python2 \
     --user=neuro \
     --afni version=latest method=binaries \
     --miniconda \
@@ -18,7 +18,7 @@ generate_docker() {
 generate_singularity() {
   docker run --rm kaczmarj/neurodocker:master generate singularity \
     --base=debian:stretch --pkg-manager=apt \
-    --install vim \
+    --install vim python2 \
     --user=neuro \
     --afni version=latest method=binaries \
     --miniconda \
