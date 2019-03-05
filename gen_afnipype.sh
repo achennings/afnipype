@@ -6,8 +6,9 @@ generate_docker() {
   docker run --rm kaczmarj/neurodocker:master generate docker \
     --base=debian:stretch --pkg-manager=apt \
     --install vim \
-    --user=neuro \
+    --user=root \
     --run "ln -s /usr/bin/python /usr/bin/python2" \
+    --user=neuro \
     --afni version=latest method=binaries \
     --miniconda \
           conda_install='python=3.6 matplotlib numpy pandas scikit-learn nilearn scipy seaborn traits' \
@@ -20,6 +21,7 @@ generate_singularity() {
   docker run --rm kaczmarj/neurodocker:master generate singularity \
     --base=debian:stretch --pkg-manager=apt \
     --install vim \
+    --user=root \
     --run "ln -s /usr/bin/python /usr/bin/python2" \
     --user=neuro \
     --afni version=latest method=binaries \
