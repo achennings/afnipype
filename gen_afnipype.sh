@@ -8,8 +8,8 @@ generate_docker() {
     --install vim \
     --user=root \
     --run "ln -s /usr/bin/python /usr/bin/python2" \
-    --user=neuro \
     --afni version=latest method=binaries \
+    --user=neuro \
     --miniconda \
           conda_install='python=3.6 matplotlib numpy pandas scikit-learn nilearn scipy seaborn traits' \
           pip_install='nibabel nipype' \
@@ -23,8 +23,8 @@ generate_singularity() {
     --install vim \
     --user=root \
     --run "ln -s /usr/bin/python /usr/bin/python2" \
-    --user=neuro \
     --afni version=latest method=binaries \
+    --user=neuro \
     --miniconda \
           conda_install='python=3.6 matplotlib numpy pandas scikit-learn nilearn scipy seaborn traits' \
           pip_install='nibabel nipype' \
