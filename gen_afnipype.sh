@@ -7,7 +7,6 @@ generate_docker() {
     --base=debian:stretch --pkg-manager=apt \
     --install vim python \
     --user=root \
-    --run "ln -s /usr/bin/python /usr/bin/python2" \
     --afni version=latest method=binaries \
     --user=neuro \
     --miniconda \
@@ -22,7 +21,6 @@ generate_singularity() {
     --base=debian:stretch --pkg-manager=apt \
     --install vim python \
     --user=root \
-    --run "ln -s /usr/bin/python /usr/bin/python2" \
     --afni version=latest method=binaries \
     --user=neuro \
     --miniconda \
